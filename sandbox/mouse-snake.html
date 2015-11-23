@@ -1,8 +1,7 @@
 <html onmousemove="mousePosition(event)">
 <head>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
 <style>
-#tracker > * {
+#tracker > .c {
 	position : absolute;
 }
 #log {
@@ -16,39 +15,48 @@
 <div id="log"></div>
 
 <input id="in" type="text" />
-<button onclick="init($('#in').val())" >SET</button>
+<button onclick="init(document.getElementById('in').value)" >SET</button>
 
 <div id="tracker"></div>
 
 
 <script>
-$(function(){
+var tracker;
+var log;
+(function() {
+	tracker = document.getElementById("tracker");
+	log = document.getElementById("log");
 	init("HELLO");
-});
-
+})();
 
 function init(str) {
-	$("#tracker").empty();
+	while (tracker.firstChild) {
+		tracker.removeChild(tracker.firstChild);
+	}
+	
 	str.split("").forEach(function(c) {
-		$("#tracker").append('<div class="c">'+c+'</div>');
+		var node = document.createElement("div");
+		node.className = 'c';
+		var textnode = document.createTextNode(c);
+		node.appendChild(textnode);  
+		tracker.appendChild(node);
 	});
 }
 
 function mousePosition(event){
-	$("#log").text("x=" + event.pageX + ", y=" + event.pageY);
-	$("#tracker > .c").each(function(i) {
-		update($(this), event, 20+(i*15), i+1);
-	})
+	log.innerHTML = "x=" + event.pageX + ", y=" + event.pageY;
+	var chars = document.querySelectorAll("#tracker > .c")
+	for (i = 0; i<chars.length; i++) {
+		update(chars[i], event, 20+(i*15), i+1);
+	}
 }
 
 function update(element, event, w, t){
 	setTimeout(function(){
-		element.css('left', (event.pageX+w));
-		element.css('top', event.pageY);
+		element.style.left = event.pageX+w;
+		element.style.top  = event.pageY;
 	}, t*100);
 }
 </script>
-
-
 </body>
 </html>
