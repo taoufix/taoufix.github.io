@@ -1,0 +1,54 @@
+<html onmousemove="mousePosition(event)">
+<head>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+<style>
+#tracker > * {
+	position : absolute;
+}
+#log {
+	position : absolute;
+	bottom:0;
+}
+</style>
+</head>
+<body>
+
+<div id="log"></div>
+
+<input id="in" type="text" />
+<button onclick="init($('#in').val())" >SET</button>
+
+<div id="tracker"></div>
+
+
+<script>
+$(function(){
+	init("HELLO");
+});
+
+
+function init(str) {
+	$("#tracker").empty();
+	str.split("").forEach(function(c) {
+		$("#tracker").append('<div class="c">'+c+'</div>');
+	});
+}
+
+function mousePosition(event){
+	$("#log").text("x=" + event.pageX + ", y=" + event.pageY);
+	$("#tracker > .c").each(function(i) {
+		update($(this), event, 20+(i*15), i+1);
+	})
+}
+
+function update(element, event, w, t){
+	setTimeout(function(){
+		element.css('left', (event.pageX+w));
+		element.css('top', event.pageY);
+	}, t*100);
+}
+</script>
+
+
+</body>
+</html>
