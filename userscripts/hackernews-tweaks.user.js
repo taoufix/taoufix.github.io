@@ -11,7 +11,7 @@
 // Points
 var MIN_SCORE = 100;
 var BEST_SCORE = 500;
-var SCORE_REGEXP = /(\d+) points/;
+var SCORE_REGEXP = /(\d+) points/;
 $('span.score').each(function() {
   var match = SCORE_REGEXP.exec($(this).text());
   if (match !== null && parseInt(match[1]) >= MIN_SCORE) {
