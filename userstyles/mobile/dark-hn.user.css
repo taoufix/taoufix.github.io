@@ -1,17 +1,21 @@
-#hnmain, textarea, input  {
-    background-color: #000 !important;
-  	color: #ccc !important;
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document domain("news.ycombinator.com") {
 
-}
-
-.title a, .comment .c00, .yclinks a {
-	color: #ccc !important;
-}
-
-.title a:visited {
-    color: #99f !important;
-}
-
-.subtext a {
-	color: #666 !important;
+    #hnmain, textarea, input  {
+        background-color: #000 !important;
+        color: #ccc !important;
+    }
+    
+    .title a, .comment .c00, .yclinks a {
+        color: #ccc !important;
+    }
+    
+    .title a:visited {
+        color: #99f !important;
+    }
+    
+    .subtext a {
+        color: #666 !important;
+    }
+    
 }
