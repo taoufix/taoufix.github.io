@@ -1,3 +1,10 @@
 @namespace url(http://www.w3.org/1999/xhtml);
-@-moz-document domain("news.ycombinator.com") {
+@-moz-document domain("m.facebook.com") {
+    ._55wm._3on7, /* Add friends to see more stories */
+    ._55wo._5rgr._5gh8._35au,  /* People you may know */
+    .acy.apm.abt, /* Get Facebook Messenger  */
+    ._5d25.acw.apm, ._4g34._4dz1 /* Install Messenger */
+    {
+        display: none !important;
+    }
 }
