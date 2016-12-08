@@ -9,8 +9,8 @@
 // ==/UserScript==
 
 // Points
-var MIN_SCORE = 100;
-var BEST_SCORE = 500;
+var MIN_SCORE = 125;
+var BEST_SCORE = 1000;
 var SCORE_REGEXP = /(\d+) points/;
 $('span.score').each(function() {
   var match = SCORE_REGEXP.exec($(this).text());
