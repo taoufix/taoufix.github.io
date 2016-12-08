@@ -3,7 +3,7 @@
 // @namespace   http://taoufix.com/hackernews-tweaks
 // @include     /^https?://news\.ycombinator\.com($|/$|/news|/best)/
 // @updateURL   https://github.com/taoufix/user-scripts/raw/master/hackernews-tweaks.user.js
-// @version     2.1.1
+// @version     2.1.2
 // @grant       none
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // ==/UserScript==
