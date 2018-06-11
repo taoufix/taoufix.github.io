@@ -10,13 +10,6 @@
         var UNIT = 33;
         var counter = 0;
 
-        // Press 'space'
-        $(document).on('keypress', function (e) {
-            if (e.which === ' ') {
-                increment();
-            }
-        });
-
         function increment(e) {
             if (e.charCode === 32) {
                 counter++;
