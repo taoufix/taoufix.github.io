@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tasbih</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        var UNIT = 3;
+        var counter = 0;
+
+        // Press 'space'
+        $(document).on('keypress', function (e) {
+            if (e.which === ' ') {
+                increment();
+            }
+        });
+
+        function increment(e) {
+            if (e.charCode === 32) {
+                counter++;
+                if (counter < UNIT) {
+                    $("#counter1").text(counter);
+                } else if (counter == UNIT) {
+                    $("#counter1").text(counter + " ✓");
+                } else if (counter < 2 * UNIT) {
+                    $("#counter2").text(counter - UNIT);
+                } else if (counter == 2 * UNIT) {
+                    $("#counter2").text((counter - UNIT) + " ✓");
+                } else if (counter < 3 * UNIT) {
+                    $("#counter3").text(counter - 2 * UNIT);
+                } else if (counter == 3 * UNIT) {
+                    $("#counter3").text((counter - 2 * UNIT) + " ✓");
+                } else {
+                    $("#shahada").text(" ✓");
+                }
+            }
+        }
+    </script>
+    <style>
+        .tassbih {
+            float: left;
+            width: 150px;
+            direction: rtl;
+        }
+    </style>
+</head>
+
+<body onkeypress="increment(event);">
+    <p>
+        Press [space]
+    </p>
+    <div class="tassbih">
+        <ul>
+            <li>
+                سبحان الله
+                <span class="check" id="counter1"></span>
+            </li>
+            <li>
+                الحمد لله
+                <span class="check" id="counter2"></span>
+            </li>
+            <li>
+                الله أكبر
+                <span class="check" id="counter3"></span>
+            </li>
+            <li>
+                لا إله إلا الله
+                <span class="check" id="shahada"></span>
+            </li>
+
+        </ul>
+    </div>
+</body>
+
+</html>
