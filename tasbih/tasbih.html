@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
-        var UNIT = 33;
+        var UNIT = 3;
         var counter = 0;
 
         // Press 'space'
@@ -41,8 +41,25 @@
     <style>
         .tassbih {
             float: left;
-            width: 150px;
-            direction: rtl;
+            width: 200px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .cell {
+            width: 100px;
+            height: 40px;
+            margin: 0;
+            text-align: right;
+            line-height: 40px;
+            padding: 0 5px;
+        }
+        .cell:last-of-type {
+            text-align: left;
         }
     </style>
 </head>
@@ -52,25 +69,38 @@
         Press [space]
     </p>
     <div class="tassbih">
-        <ul>
-            <li>
+        <div class="row">
+            <div class="cell">
                 سبحان الله
+            </div>
+            <div class="cell">
                 <span class="check" id="counter1"></span>
-            </li>
-            <li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
                 الحمد لله
+            </div>
+            <div class="cell">
                 <span class="check" id="counter2"></span>
-            </li>
-            <li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
                 الله أكبر
+            </div>
+            <div class="cell">
                 <span class="check" id="counter3"></span>
-            </li>
-            <li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
                 لا إله إلا الله
+            </div>
+            <div class="cell">
                 <span class="check" id="shahada"></span>
-            </li>
-
-        </ul>
+            </div>
+        </div>
     </div>
 </body>
 
