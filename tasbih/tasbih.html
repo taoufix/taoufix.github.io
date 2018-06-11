@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
-        var UNIT = 33;
+        var UNIT = 3;
         var counter = 0;
 
         function increment(e) {
@@ -32,32 +32,57 @@
         }
     </script>
     <style>
+        body {
+            font-family: Tahoma, Geneva, sans-serif;
+        }
+        .container {
+            width: 250px;
+            text-align: center;
+        }
+
+        p {
+            color: green;
+            position: relative;
+        }
+
+        p::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: calc(50% - 20px);
+            width: 40px;
+            height: 3px;
+            background: #eee;
+        }
+
         .tassbih {
             float: left;
-            width: 200px;
+            width: 100%;
+            margin-top: 20px;
+            text-align: right;
         }
 
         .row {
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: center;
         }
 
         .cell {
             width: 100px;
-            height: 40px;
-            margin: 0;
-            text-align: right;
             line-height: 40px;
             padding: 0 5px;
         }
+
         .cell:last-of-type {
+            color: green;
             text-align: left;
         }
     </style>
 </head>
 
 <body onkeypress="increment(event);">
+<div class="container">
     <p>
         Press [space]
     </p>
@@ -94,6 +119,7 @@
                 <span class="check" id="shahada"></span>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
