@@ -4,29 +4,32 @@
 <head>
     <meta charset="utf-8" />
     <title>Tasbih</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
         var UNIT = 33;
         var counter = 0;
+        
+        function update(id, value) {
+            document.getElementById(id).innerHTML = value;
+        }
 
         function increment(e) {
             if (e.charCode === 32) {
                 counter++;
                 if (counter < UNIT) {
-                    $("#counter1").text(counter);
+                    update("counter1", counter);
                 } else if (counter == UNIT) {
-                    $("#counter1").text(counter + " ✓");
+                    update("counter1", counter + " ✓");
                 } else if (counter < 2 * UNIT) {
-                    $("#counter2").text(counter - UNIT);
+                    update("counter2", counter - UNIT);
                 } else if (counter == 2 * UNIT) {
-                    $("#counter2").text((counter - UNIT) + " ✓");
+                    update("counter2", (counter - UNIT) + " ✓");
                 } else if (counter < 3 * UNIT) {
-                    $("#counter3").text(counter - 2 * UNIT);
+                    update("counter3", counter - 2 * UNIT);
                 } else if (counter == 3 * UNIT) {
-                    $("#counter3").text((counter - 2 * UNIT) + " ✓");
+                    update("counter3", (counter - 2 * UNIT) + " ✓");
                 } else {
-                    $("#shahada").text(" ✓");
+                    update("shahada", " ✓");
                 }
             }
         }
