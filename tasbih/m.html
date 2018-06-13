@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Click</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        var UNIT = 33;
+        var counter = 0;
+
+        function increment() {
+            counter++;
+            if (counter < UNIT) {
+                $("#counter1").text(counter);
+            } else if (counter == UNIT) {
+                $("#counter1").text(counter + " ✓");
+            } else if (counter < 2 * UNIT) {
+                $("#counter2").text(counter - UNIT);
+            } else if (counter == 2 * UNIT) {
+                $("#counter2").text((counter - UNIT) + " ✓");
+            } else if (counter < 3 * UNIT) {
+                $("#counter3").text(counter - 2 * UNIT);
+            } else if (counter == 3 * UNIT) {
+                $("#counter3").text((counter - 2 * UNIT) + " ✓");
+            } else {
+                $("#shahada").text(" ✓");
+            }
+        }
+    </script>
+</head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    button {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        border: 0;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 1.5em;
+    }
+
+    .tassbih {
+        width: 100%;
+        margin-top: 20px;
+        text-align: right;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .cell {
+        width: 200px;
+        line-height: 40px;
+        padding: 0 5px;
+    }
+
+    .cell:last-of-type {
+        color: lightgreen;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <button onclick="increment();">
+        <div class="tassbih">
+            <div class="row">
+                <div class="cell">
+                    سبحان الله
+                </div>
+                <div class="cell">
+                    <span class="check" id="counter1"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    الحمد لله
+                </div>
+                <div class="cell">
+                    <span class="check" id="counter2"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    الله أكبر
+                </div>
+                <div class="cell">
+                    <span class="check" id="counter3"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    لا إله إلا الله
+                </div>
+                <div class="cell">
+                    <span class="check" id="shahada"></span>
+                </div>
+            </div>
+        </div>
+    </button>
+</body>
+
+</html>
