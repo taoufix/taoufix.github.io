@@ -4,36 +4,37 @@
 <head>
     <meta charset="utf-8" />
     <title>تسبيح</title>
-    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGXSURBVDiNjZOxT1NRFMZ/5773iihBIRIwDiQim4mpysAGFFKCmpDgblhZGZ39A1xZXIwsBBNNsCEOLk7SKIlxgBJGCJC2FpOm5b1zGKDQPkLbb7v5zvnlO/feI2ZGg3IzHUUNZxCbA/l5Z3j9HU3k1x+Ku6lBzPuEkAQ5UvEXmjU3APK5yVFn3mfgLoBh73sfrpVaARzAwZ/Jfonccq0ZAHGbrZovAH45+CiOwXrD02irPcD3+RtEjMUNxbvfFiB/a2+Mk7MkDRJ92hZAhHEMCCVOGG0LAJwAWPWKlypsp1+0BISmKwB27EBjGbCl0t/p3qaAvpH13+KIULDSlau4p4F+K+ykHzUbARL2A8DKcpak8XcnRS1b2J568y+XGooDxMwg++xmvtJ3REgnAIHhbhsEFq8HKNp/ty9VesyXV1JbpmI2PatlWUXl8jk8kOAcZAIRWFUQUDp53fPk6wep38aDXxOP/UpHhioD180sHqGXsJfdI5nM5QgxFTam36I8t1AeiNJloDg7lgRfKp5bHEiuHdZqTwEW2ZgM4RMXugAAAABJRU5ErkJggg=="/>
 
-    
+    <!-- Icons made by Freepik href="http://www.freepik.com" from www.flaticon.com is licensed by Creative Commons BY 3.0 -->
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGXSURBVDiNjZOxT1NRFMZ/5773iihBIRIwDiQim4mpysAGFFKCmpDgblhZGZ39A1xZXIwsBBNNsCEOLk7SKIlxgBJGCJC2FpOm5b1zGKDQPkLbb7v5zvnlO/feI2ZGg3IzHUUNZxCbA/l5Z3j9HU3k1x+Ku6lBzPuEkAQ5UvEXmjU3APK5yVFn3mfgLoBh73sfrpVaARzAwZ/Jfonccq0ZAHGbrZovAH45+CiOwXrD02irPcD3+RtEjMUNxbvfFiB/a2+Mk7MkDRJ92hZAhHEMCCVOGG0LAJwAWPWKlypsp1+0BISmKwB27EBjGbCl0t/p3qaAvpH13+KIULDSlau4p4F+K+ykHzUbARL2A8DKcpak8XcnRS1b2J568y+XGooDxMwg++xmvtJ3REgnAIHhbhsEFq8HKNp/ty9VesyXV1JbpmI2PatlWUXl8jk8kOAcZAIRWFUQUDp53fPk6wep38aDXxOP/UpHhioD180sHqGXsJfdI5nM5QgxFTam36I8t1AeiNJloDg7lgRfKp5bHEiuHdZqTwEW2ZgM4RMXugAAAABJRU5ErkJggg=="/>
     <link href="icon-256.png" rel="icon" sizes="256x256" />
     <link href="icon-128.png" rel="icon" sizes="128x128" />
 
-    <!-- Icons made by Freepik href="http://www.freepik.com" from www.flaticon.com is licensed by Creative Commons BY 3.0 -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
         var UNIT = 33;
         var counter = 0;
 
+        function update(id, value) {
+            document.getElementById(id).innerHTML = value;
+        }
+
         function increment() {
             counter++;
             if (counter < UNIT) {
-                $("#counter1").text(counter);
+                update("counter1", counter);
             } else if (counter == UNIT) {
-                $("#counter1").text(counter + " ✓");
+                update("counter1", counter + " ✓");
             } else if (counter < 2 * UNIT) {
-                $("#counter2").text(counter - UNIT);
+                update("counter2", counter - UNIT);
             } else if (counter == 2 * UNIT) {
-                $("#counter2").text((counter - UNIT) + " ✓");
+                update("counter2", (counter - UNIT) + " ✓");
             } else if (counter < 3 * UNIT) {
-                $("#counter3").text(counter - 2 * UNIT);
+                update("counter3", counter - 2 * UNIT);
             } else if (counter == 3 * UNIT) {
-                $("#counter3").text((counter - 2 * UNIT) + " ✓");
+                update("counter3", (counter - 2 * UNIT) + " ✓");
             } else {
-                $("#shahada").text(" ✓");
+                update("shahada", " ✓");
             }
         }
     </script>
