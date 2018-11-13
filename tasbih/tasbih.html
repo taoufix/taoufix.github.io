@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <title>Tasbih</title>
 
     <script>
@@ -13,24 +12,54 @@
             document.getElementById(id).innerHTML = value;
         }
 
+		function isMaghib() {
+			return document.getElementById("maghrib").checked;
+		}
+		
         function increment(e) {
             if (e.charCode === 32) {
                 counter++;
                 if (counter < UNIT) {
                     update("counter1", counter);
-                } else if (counter == UNIT) {
+                } else if (counter === UNIT) {
                     update("counter1", counter + " ✓");
-                } else if (counter < 2 * UNIT) {
+                } else if (counter <   2*UNIT) {
                     update("counter2", counter - UNIT);
-                } else if (counter == 2 * UNIT) {
+                } else if (counter === 2*UNIT) {
                     update("counter2", (counter - UNIT) + " ✓");
-                } else if (counter < 3 * UNIT) {
-                    update("counter3", counter - 2 * UNIT);
-                } else if (counter == 3 * UNIT) {
-                    update("counter3", (counter - 2 * UNIT) + " ✓");
-                } else {
-                    update("shahada", " ✓");
-                }
+                } else if (counter <   3*UNIT) {
+                    update("counter3", counter - 2*UNIT);
+                } else if (counter === 3*UNIT) {
+                    update("counter3", (counter - 2*UNIT) + " ✓");
+                } else if (isMaghib()) {
+      				if (counter < 3*UNIT + 10) {
+						update("shahada", (counter - 3*UNIT));
+					} else if (counter === 3*UNIT + 10) {
+						update("shahada", (counter - 3*UNIT) + " ✓");
+					} else if (counter < 3*UNIT + 13) {
+						update("ikhlass", (counter - 3*UNIT -10));
+					} else if (counter === 3*UNIT + 13) {
+						update("ikhlass", (counter - 3*UNIT -10) + " ✓");
+					} else if (counter < 3*UNIT + 16) {
+						update("falaq", (counter - 3*UNIT -13));
+					} else if (counter === 3*UNIT + 16) {
+						update("falaq", (counter - 3*UNIT -13) + " ✓");
+					} else if (counter < 3*UNIT + 19) {
+						update("annas", (counter - 3*UNIT -16));
+					} else if (counter === 3*UNIT + 19) {
+						update("annas", (counter - 3*UNIT -16) + " ✓");
+					} 
+				} else {
+      				if (counter === 3*UNIT + 1) {
+						update("shahada", " ✓");
+					} else if (counter === 3*UNIT + 2) {
+						update("ikhlass", " ✓");
+					} else if (counter === 3*UNIT + 3) {
+						update("falaq", " ✓");
+					} else if (counter === 3*UNIT + 4) {
+						update("annas", " ✓");
+					}
+				}
             }
         }
     </script>
@@ -48,17 +77,6 @@
 
         p {
             color: green;
-            position: relative;
-        }
-
-        p::before {
-            content: "";
-            position: absolute;
-            top: 40px;
-            left: calc(50% - 20px);
-            width: 40px;
-            height: 3px;
-            background: #eee;
         }
 
         .tassbih {
@@ -90,10 +108,18 @@
 
 <body onkeypress="increment(event);">
 <div class="container">
-    <p>
-        Press [space]
-    </p>
     <div class="tassbih">
+        <div class="row">
+            <div class="cell">
+				<p>
+				مغرب
+				</p>
+			</div>
+            <div class="cell">
+                <span><input type="checkbox" id="maghrib"  /></span>
+				
+            </div>
+        </div>
         <div class="row">
             <div class="cell">
                 سبحان الله
@@ -126,8 +152,34 @@
                 <span class="check" id="shahada"></span>
             </div>
         </div>
-    </div>
-    </div>
-</body>
+		        <div class="row">
+            <div class="cell">
+                الإخلاص
+            </div>
+            <div class="cell">
+                <span class="check" id="ikhlass"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                الفلق
+            </div>
+            <div class="cell">
+                <span class="check" id="falaq"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                الناس
+            </div>
+            <div class="cell">
+                <span class="check" id="annas"></span>
+            </div>
+        </div>
 
-</html>
+    </div>
+    </div>
+
+
+
+</body></html>
