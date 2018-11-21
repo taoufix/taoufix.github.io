@@ -37,31 +37,31 @@
 					} else if (counter === 3*UNIT + 10) {
 						update("shahada", (counter - 3*UNIT) + " ✓");
 					} else if (counter === 3*UNIT + 11) {
-					   update("koursi", " ✓");
-					} else if (counter < 3*UNIT + 14) {
-						update("ikhlass", (counter - 3*UNIT -11));
-					} else if (counter === 3*UNIT + 14) {
-						update("ikhlass", (counter - 3*UNIT -11) + " ✓");
-					} else if (counter < 3*UNIT + 17) {
-						update("falaq", (counter - 3*UNIT -14));
-					} else if (counter === 3*UNIT + 17) {
-						update("falaq", (counter - 3*UNIT -14) + " ✓");
-					} else if (counter < 3*UNIT + 20) {
-						update("annas", (counter - 3*UNIT -17));
-					} else if (counter === 3*UNIT + 20) {
-						update("annas", (counter - 3*UNIT -17) + " ✓");
-					} 
+					   update("koursi", "1 ✓");
+					} else {
+						var x = counter - 3*UNIT - 12;
+						switch(x) {
+							case 0: 
+							case 3:
+							case 6:
+								update("ikhlass", (x/3)+1 + ((x == 6)? " ✓" : "")); break;
+							case 1: 
+							case 4:
+							case 7:
+								update("falaq", ((x-1)/3)+1 + ((x == 7)? " ✓" : "")); break;
+							case 2: 
+							case 5:
+							case 8:
+								update("annas", ((x-2)/3)+1 + ((x == 8)? " ✓" : "")); break;
+						}
+					}
 				} else {
-      				if (counter === 3*UNIT + 1) {
-						update("shahada", " ✓");
-				} else if (counter === 3*UNIT + 2) {
-					   update("koursi", " ✓");
-					} else if (counter === 3*UNIT + 3) {
-						update("ikhlass", " ✓");
-					} else if (counter === 3*UNIT + 4) {
-						update("falaq", " ✓");
-					} else if (counter === 3*UNIT + 5) {
-						update("annas", " ✓");
+					switch (counter -3*UNIT) {
+						case 1: update("shahada", "1 ✓"); break;
+						case 2: update("koursi",  "1 ✓"); break;
+						case 3: update("ikhlass", "1 ✓"); break;
+						case 4: update("falaq",   "1 ✓"); break;
+						case 5: update("annas",   "1 ✓"); break;
 					}
 				}
             }
@@ -118,7 +118,7 @@
 				مغرب
 			</div>
             <div class="cell">
-                <input type="checkbox" id="maghrib" />
+                <input type="checkbox" id="maghrib">
             </div>
         </div>
         <div class="row">
@@ -188,5 +188,6 @@
 
     </div>
     </div>
+
 
 </body></html>
