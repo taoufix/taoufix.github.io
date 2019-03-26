@@ -10,6 +10,7 @@
 
         function update(id, value) {
             document.getElementById(id).innerHTML = value;
+            document.getElementById("hidden-counter").innerHTML = value;
         }
 
         function isMaghib() {
@@ -17,66 +18,76 @@
         }
 
         function keyPressed(e) {
-            if (e.charCode === 32) {
-                counter++;
-                if (counter < UNIT) {
-                    update("counter1", counter);
-                } else if (counter === UNIT) {
-                    update("counter1", counter + " ✓");
-                } else if (counter <   2*UNIT) {
-                    update("counter2", counter - UNIT);
-                } else if (counter === 2*UNIT) {
-                    update("counter2", (counter - UNIT) + " ✓");
-                } else if (counter <   3*UNIT) {
-                    update("counter3", counter - 2*UNIT);
-                } else if (counter === 3*UNIT) {
-                    update("counter3", (counter - 2*UNIT) + " ✓");
-                } else if (isMaghib()) {
-                    if (counter < 3*UNIT + 10) {
-                        update("shahada", (counter - 3*UNIT));
-                    } else if (counter === 3*UNIT + 10) {
-                        update("shahada", (counter - 3*UNIT) + " ✓");
-                    } else if (counter === 3*UNIT + 11) {
-                       update("koursi", "1 ✓");
+            switch(e.charCode) { 
+                case 32: /* [space] */ { 
+                    counter++;
+                    if (counter < UNIT) {
+                        update("counter1", counter);
+                    } else if (counter === UNIT) {
+                        update("counter1", counter + " ✓");
+                    } else if (counter <   2*UNIT) {
+                        update("counter2", counter - UNIT);
+                    } else if (counter === 2*UNIT) {
+                        update("counter2", (counter - UNIT) + " ✓");
+                    } else if (counter <   3*UNIT) {
+                        update("counter3", counter - 2*UNIT);
+                    } else if (counter === 3*UNIT) {
+                        update("counter3", (counter - 2*UNIT) + " ✓");
+                    } else if (isMaghib()) {
+                        if (counter < 3*UNIT + 10) {
+                            update("shahada", (counter - 3*UNIT));
+                        } else if (counter === 3*UNIT + 10) {
+                            update("shahada", (counter - 3*UNIT) + " ✓");
+                        } else if (counter === 3*UNIT + 11) {
+                        update("koursi", "1 ✓");
+                        } else {
+                            var x = counter - 3*UNIT - 12;
+                            switch(x) {
+                                case 0:
+                                case 3:
+                                case 6:
+                                    update("ikhlass", (x/3)+1 + ((x == 6)? " ✓" : "")); break;
+                                case 1:
+                                case 4:
+                                case 7:
+                                    update("falaq", ((x-1)/3)+1 + ((x == 7)? " ✓" : "")); break;
+                                case 2:
+                                case 5:
+                                case 8:
+                                    update("annas", ((x-2)/3)+1 + ((x == 8)? " ✓" : "")); break;
+                            }
+                        }
                     } else {
-                        var x = counter - 3*UNIT - 12;
-                        switch(x) {
-                            case 0:
-                            case 3:
-                            case 6:
-                                update("ikhlass", (x/3)+1 + ((x == 6)? " ✓" : "")); break;
-                            case 1:
-                            case 4:
-                            case 7:
-                                update("falaq", ((x-1)/3)+1 + ((x == 7)? " ✓" : "")); break;
-                            case 2:
-                            case 5:
-                            case 8:
-                                update("annas", ((x-2)/3)+1 + ((x == 8)? " ✓" : "")); break;
+                        switch (counter -3*UNIT) {
+                            case 1: update("shahada", "1 ✓"); break;
+                            case 2: update("koursi",  "1 ✓"); break;
+                            case 3: update("ikhlass", "1 ✓"); break;
+                            case 4: update("falaq",   "1 ✓"); break;
+                            case 5: update("annas",   "1 ✓"); break;
                         }
                     }
-                } else {
-                    switch (counter -3*UNIT) {
-                        case 1: update("shahada", "1 ✓"); break;
-                        case 2: update("koursi",  "1 ✓"); break;
-                        case 3: update("ikhlass", "1 ✓"); break;
-                        case 4: update("falaq",   "1 ✓"); break;
-                        case 5: update("annas",   "1 ✓"); break;
+                    break;
+                }
+                case 103: /* G */ { 
+                    document.location.href = 'https://www.google.com/search?q=angularjs+download+from+post';
+                    break;
+                }
+                case 104: /* H */ {
+                    var container = document.getElementById("container");
+                    if (container.style.display === "none") {
+                        container.style.display = "block";
+                        document.getElementById("hidden-counter").style.display = "none";
+                    } else {
+                        container.style.display = "none";
+                        document.getElementById("hidden-counter").style.display = "block";
                     }
+                    break;
                 }
-            } else if (e.charCode === 104 /* H */) {
-                var container = document.getElementById("container");
-                if (container.style.display === "none") {
-                    container.style.display = "block";
-                } else {
-                    container.style.display = "none";
+                case 109: /* M */ {
+                    document.getElementById("maghrib").checked = !document.getElementById("maghrib").checked;
+                    break;
                 }
-            } else if (e.charCode === 103 /* G */) {
-				document.location.href = 'https://www.google.com/search?q=angularjs+download+from+post';
-            } else if (e.charCode === 109 /* M */) {
-				document.getElementById("maghrib").checked = !document.getElementById("maghrib").checked;
-			}
-
+            }
         }
     </script>
     <style>
@@ -90,7 +101,14 @@
             position: fixed;
             bottom: 0px;
         }
-
+        #hidden-counter {
+            position: fixed;
+            bottom: 5px;
+            left: 5px;
+            display: none;
+            color: green;
+            font-size: small;
+        }
         .maghrib {
             color: green;
         }
@@ -123,6 +141,7 @@
 </head>
 
 <body onkeypress="keyPressed(event);" cz-shortcut-listen="true">
+    <div id="hidden-counter"></div>
     <div id="container" class="container">
         <div class="tassbih">
             <div class="row">
