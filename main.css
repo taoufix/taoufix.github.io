@@ -4,13 +4,17 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
   line-height: 1.5;
   padding: 4em 1em;
-  background-color: #333;
-  color: #aaa;
+  background-color: #111;
+  color: #eee;
 }
 
 h1,
 h2,
 strong {
-  color: #eee;
+  color: #efefef;
 }
 
+a,
+a:visited {
+  color: #eee;
+}
