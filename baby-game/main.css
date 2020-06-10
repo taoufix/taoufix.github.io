@@ -2,11 +2,11 @@
 .cursor {
   left: 0;
   top: 0;
-  width: 100px;
-  height: 100px;
-  background: url('img/mouse.jpg');
+  width: 90px;
+  height: 90px;
+  background: url('img/mouse.jpg'); 
   background-repeat: no-repeat;
-  background-size: 100px;
+  background-size: 105px;
 
   position: absolute;
   border-radius: 50px;
@@ -15,8 +15,8 @@
 .cursor__follower {
   transition: transform .4s;
   background-image: url('img/cat.jpg');
-  width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
 }
 
 html {
