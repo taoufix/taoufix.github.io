@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+  color: CornflowerBlue;
+  background-color: black;
+  font-weight: bold;
+  font-size: 12em;
+  display: grid;
+  align-content: center;
+  height: 100vh;
+  text-align: center;
+  user-select: none;
+}
